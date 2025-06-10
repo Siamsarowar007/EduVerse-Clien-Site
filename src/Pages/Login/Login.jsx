@@ -70,10 +70,11 @@ const Login = () => {
                                 {error && <div className="text-red-500 mt-2 text-sm">{error}</div>}
                                 <div><a className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Login</button>
-                                <p className='text-accent font-semibold text-center text-md pt-2'>Don't Have An Account ? <Link to='/register' className=' text-secondary font-bold hover:text-primary'>Register...</Link></p>
+                                {/* <p className='text-accent font-semibold text-center text-md pt-2'>Don't Have An Account ? <Link to='/register' className=' text-secondary font-bold hover:text-primary'>Register...</Link></p> */}
                             </fieldset>
                         </form>
                         <SocialLogin></SocialLogin>
+                        <p className=' font-semibold text-center text-md pt-2'>Allready Have An Account ? <Link to='/register' className='text-red-600 font-bold hover:text-primary'>Register</Link></p>
                     </div>
                 </div>
             </div>
