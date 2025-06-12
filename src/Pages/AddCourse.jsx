@@ -9,52 +9,54 @@ import Swal from 'sweetalert2';
 const AddCourse = () => {
 
     const { user } = useAuthContext();
+    console.log(user);
 
     const handleAddCourse = (e) => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const courseData = Object.fromEntries(formData.entries());
-
-        console.log(courseData);
-
-        // const courseTitle = from.course_title.value;
-        // const duration = from.duration.value;
-        // const photo = from.photo.value;
-        // const description = from.description.value;
-        // const category = from.category.value;
+        const formValues = Object.fromEntries(formData.entries());
 
 
-        // console.log(courseTitle, duration, photo, description, category);
-        // const addCourse = {
-        //     courseTitle,
-        //     duration,
-        //     photo,
-        //     description,
-        //     category,
+        const newCourses = {
+            ...formValues,
+            instructorName: user?.displayName,
+            instructorEmail: user?.email,
+            createdAt: new Date().toISOString(),
+            status: 'pending'
+        };
+        console.log(newCourses);
 
-        // };
 
-        //  send a  application data in server
+        //  send data to the server
 
-        // axios.post('http://localhost:5000/courses', addCourse)
-        //     .then(res => {
-        //         console.log(res.data)
-        //         if (res.data.insertedId) {
-        //             Swal.fire({
-        //                 position: "top-end",
-        //                 icon: "success",
-        //                 title: "Your Course has been Added",
-        //                 showConfirmButton: false,
-        //                 timer: 1000
-        //             });
-        //         }
-        //         // from.reset();
-        //     })
-        //     .catch(error => {
-        //         console.log('Error submitting application:', error);
-        //     })
+        axios.post('http://localhost:5000/courses', newCourses)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your Course has been Added",
+                        showConfirmButton: false,
+                        timer: 1000
+                    });
+                }
+                // from.reset();
+            })
+            .catch(error => {
+                console.log('Error submitting application:', error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!"
+                });
+            })
     }
+
+
+
+
 
     return (
         <div className="max-w-lg mx-auto mt-16 p-8 bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-2xl shadow-2xl border border-blue-200">
@@ -86,8 +88,8 @@ const AddCourse = () => {
                     <input type="text" name='category' accept="url" className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Category" required />
                 </div>
                 {/* <div>
-                    <label className="block text-blue-700 font-semibold mb-1">Enroll Deadline</label>
-                    <input type="text" name='deadline' accept="url" className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enroll Deadline" required />
+                    <label className="block text-blue-700 font-semibold mb-1">Status</label>
+                    <input type="text" name='status' accept="url" className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Status" required />
                 </div> */}
                 <div>
                     <label className="block text-blue-700 font-semibold mb-1">Enroll Deadline</label>
