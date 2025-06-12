@@ -10,6 +10,7 @@ import CourseDetails from '../Pages/CourseDetails/CourseDetails';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ErrorPage from '../Shared/ErrorPage';
 import MyEnrollments from '../Pages/MyEnrollments/MyEnrollments';
+import StudentFeedback from '../Pages/StudentFeedback/StudentFeedback';
 
 
 
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyEnrollments></MyEnrollments>
         </PrivateRoute>
+      },
+      {
+        path: '/feedback',
+        Component: StudentFeedback,
       },
       {
         path: '/services',
