@@ -8,6 +8,7 @@ import AddCourse from '../Pages/AddCourse';
 import Services from '../Pages/Services';
 import CourseDetails from '../Pages/CourseDetails/CourseDetails';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import ErrorPage from '../Shared/ErrorPage';
 
 
 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         {
           path: '/services',
           Component: Services ,
+        },
+        {
+          path: '/*',
+          Component: ErrorPage ,
         },
     ]
   },

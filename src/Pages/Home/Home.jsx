@@ -16,11 +16,12 @@ const Home = () => {
 
     return (
         <div>
+            <title>Home || EduVerse</title>
             <h2 className='text-6xl font-bold text-center'>This is Home Page</h2>
+            <PopularCourses></PopularCourses>
             <Suspense fallback={'Loading Course...'}>
                 <OurCourses coursesPromise={coursesPromise}></OurCourses>
             </Suspense>
-            <PopularCourses></PopularCourses>
             <LatestNews></LatestNews>
         </div>
     );

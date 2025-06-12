@@ -60,6 +60,7 @@ const AddCourse = () => {
 
     return (
         <div className="max-w-lg mx-auto mt-16 p-8 bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-2xl shadow-2xl border border-blue-200">
+            <title>Add Course || EduVerse</title>
             <h1 className="text-4xl font-bold text-blue-800 mb-6 text-center">Add Course </h1>
             {/* <Link to={`/`}><span className='underline hover:text-purple-500'>Details</span></Link> */}
             <form onSubmit={handleAddCourse} className="space-y-5">

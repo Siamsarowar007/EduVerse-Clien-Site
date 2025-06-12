@@ -65,6 +65,7 @@ const Register = () => {
 
     return (
         <div className="hero bg-base-200 min-h-screen">
+            <title>Register || EduVerse</title>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <Lottie className='ml-4' style={{ width: "260px" }} animationData={registerLottie} loop={true}></Lottie>
