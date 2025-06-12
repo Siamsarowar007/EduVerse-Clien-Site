@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import OurCourses from '../OurCourses/OurCourses';
 import LatestNews from './LatestNews';
+import PopularCourses from '../PopularCourses/PopularCourses';
 
 
 
@@ -19,6 +20,7 @@ const Home = () => {
             <Suspense fallback={'Loading Course...'}>
                 <OurCourses coursesPromise={coursesPromise}></OurCourses>
             </Suspense>
+            <PopularCourses></PopularCourses>
             <LatestNews></LatestNews>
         </div>
     );

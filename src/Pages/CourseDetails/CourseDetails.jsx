@@ -24,7 +24,7 @@ const CourseDetails = () => {
                 enrolledAt: new Date().toISOString()
             };
             const res = await axios.post('http://localhost:5000/enrollments', enrollData);
-            if (res.data.insertedId) {
+            if (res.data.enrolled) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Enrolled!',
@@ -37,6 +37,7 @@ const CourseDetails = () => {
                     text: 'You are already enrolled in this course.'
                 });
             }
+
         } catch (error) {
             console.log(error)
             Swal.fire({

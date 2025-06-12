@@ -5,7 +5,7 @@ const OurCourses = ({ coursesPromise }) => {
     const courses = use(coursesPromise);
     const [showAll, setShowAll] = useState(false);
 
-    // কাটা list বানানো
+    
     const displayedCourses = showAll ? courses : courses.slice(0, 6);
 
     return (
