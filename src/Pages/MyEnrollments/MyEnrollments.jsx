@@ -41,6 +41,7 @@ const MyEnrollments = () => {
 
     return (
         <div className="container mx-auto p-8">
+            <title>MyEnrollments || EduVerse</title>
             <h1 className="text-3xl font-bold mb-6">My Enrollments</h1>
 
             <div className="overflow-x-auto">

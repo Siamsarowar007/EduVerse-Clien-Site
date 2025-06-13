@@ -37,6 +37,7 @@ const ManageCourses = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-10 p-6 bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-2xl shadow-lg border border-blue-200">
+      <title>Manage Course || EduVerse</title>
       <h1 className="text-4xl font-bold text-blue-800 mb-6 text-center">Manage Your Courses</h1>
 
       <div className="overflow-x-auto">

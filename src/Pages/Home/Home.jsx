@@ -6,6 +6,8 @@ import WhyChooseUs from '../ExtraSection/WhyChooseUs';
 import Testimonials from '../ExtraSection/Testimonials';
 import UpcomingFeatures from '../ExtraSection/UpcomingFeatures';
 import StatsAndNewsletter from '../ExtraSection/StatsAndNewsletter';
+import FAQ from '../ExtraSection/FAQ';
+import Banner from './Banner';
 
 
 
@@ -22,6 +24,7 @@ const Home = () => {
         <div>
             <title>Home || EduVerse</title>
             <h2 className='text-6xl font-bold text-center'>This is Home Page</h2>
+            <Banner></Banner>
             <PopularCourses></PopularCourses>
             <Suspense fallback={'Loading Course...'}>
                 <OurCourses coursesPromise={coursesPromise}></OurCourses>
@@ -30,6 +33,7 @@ const Home = () => {
             <WhyChooseUs></WhyChooseUs>
             <Testimonials></Testimonials>
             <UpcomingFeatures></UpcomingFeatures>
+            <FAQ></FAQ>
             <StatsAndNewsletter></StatsAndNewsletter>
         </div>
     );

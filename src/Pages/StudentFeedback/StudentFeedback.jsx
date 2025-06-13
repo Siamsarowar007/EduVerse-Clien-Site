@@ -88,6 +88,7 @@ const StudentFeedback = () => {
 
   return (
     <div className="max-w-5xl mx-auto my-16 p-6">
+      <title>Feedback || EduVerse</title>
       <h2 className="text-4xl font-bold text-center mb-10 flex justify-center items-center gap-2 text-blue-800">
         <MdOutlineFeedback size={40} className="text-blue-500" /> Student Feedback
       </h2>
