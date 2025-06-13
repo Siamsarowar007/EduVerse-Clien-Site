@@ -11,6 +11,9 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ErrorPage from '../Shared/ErrorPage';
 import MyEnrollments from '../Pages/MyEnrollments/MyEnrollments';
 import StudentFeedback from '../Pages/StudentFeedback/StudentFeedback';
+import EditCourse from '../Pages/EditCourse/EditCourse';
+import ManageCourses from '../Pages/ManageCourse/ManageCourses';
+
 
 
 
@@ -40,15 +43,32 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses/:id',
-        element: <PrivateRoute>
-          <CourseDetails></CourseDetails>
-        </PrivateRoute>,
+        element:<CourseDetails></CourseDetails>
+       ,
+        // element: <PrivateRoute>
+        //   <CourseDetails></CourseDetails>
+        // </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
       },
+      {
+        path: '/manageCourses',
+        element:<PrivateRoute>
+          <ManageCourses></ManageCourses>
+        </PrivateRoute>,
+      },
+      // {
+      //   path: '/editCourse/:id',
+      //   element: 
+      // },
       {
         path: '/myEnrollments',
         element: <PrivateRoute>
           <MyEnrollments></MyEnrollments>
+        </PrivateRoute>
+      },
+      {  path: '/editCourse/:id',
+        element: <PrivateRoute>
+          <EditCourse></EditCourse>
         </PrivateRoute>
       },
       {

@@ -20,8 +20,9 @@ const Navbar = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/addCourse'>Add Course</NavLink></li>
         <li><NavLink to='/myEnrollments'>My Enrollment</NavLink></li>
+        <li><NavLink to='/manageCourses'>Manage Courses</NavLink></li>
         <li><NavLink to='/feedback'>Feedback</NavLink></li>
-        <li><NavLink to='/services'>Services</NavLink></li>
+        {/* <li><NavLink to='/editCourse'>EditCourse</NavLink></li> */}
     </>
 
     return (
