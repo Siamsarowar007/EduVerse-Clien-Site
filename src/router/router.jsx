@@ -39,12 +39,14 @@ const router = createBrowserRouter([
       },
       {
         path: '/addCourse',
-        Component: AddCourse,
+        element: <PrivateRoute>
+          <AddCourse></AddCourse>
+        </PrivateRoute>,
       },
       {
         path: '/courses/:id',
-        element:<CourseDetails></CourseDetails>
-       ,
+        element: <CourseDetails></CourseDetails>
+        ,
         // element: <PrivateRoute>
         //   <CourseDetails></CourseDetails>
         // </PrivateRoute>,
@@ -52,7 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/manageCourses',
-        element:<PrivateRoute>
+        element: <PrivateRoute>
           <ManageCourses></ManageCourses>
         </PrivateRoute>,
       },
@@ -66,7 +68,8 @@ const router = createBrowserRouter([
           <MyEnrollments></MyEnrollments>
         </PrivateRoute>
       },
-      {  path: '/editCourse/:id',
+      {
+        path: '/editCourse/:id',
         element: <PrivateRoute>
           <EditCourse></EditCourse>
         </PrivateRoute>

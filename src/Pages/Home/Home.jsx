@@ -2,6 +2,10 @@ import React, { Suspense } from 'react';
 import OurCourses from '../OurCourses/OurCourses';
 import LatestNews from './LatestNews';
 import PopularCourses from '../PopularCourses/PopularCourses';
+import WhyChooseUs from '../ExtraSection/WhyChooseUs';
+import Testimonials from '../ExtraSection/Testimonials';
+import UpcomingFeatures from '../ExtraSection/UpcomingFeatures';
+import StatsAndNewsletter from '../ExtraSection/StatsAndNewsletter';
 
 
 
@@ -23,6 +27,10 @@ const Home = () => {
                 <OurCourses coursesPromise={coursesPromise}></OurCourses>
             </Suspense>
             <LatestNews></LatestNews>
+            <WhyChooseUs></WhyChooseUs>
+            <Testimonials></Testimonials>
+            <UpcomingFeatures></UpcomingFeatures>
+            <StatsAndNewsletter></StatsAndNewsletter>
         </div>
     );
 };
