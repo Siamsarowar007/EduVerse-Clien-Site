@@ -10,7 +10,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const Register = () => {
 
     const { createUser } = use(AuthContext);
-    const navigate = useNavigate(); // for redirection
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -38,7 +38,6 @@ const Register = () => {
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
 
-        // Password validation
         const errorMsg = validatePassword(password, email);
         if (errorMsg) {
             alert(errorMsg);
@@ -51,12 +50,10 @@ const Register = () => {
 
         try {
             const result = await createUser(email, password);
-            // Update user profile
             await updateProfile(result.user, {
                 displayName: name,
                 photoURL: photoURL
             });
-            // Redirect to homepage
             navigate("/");
         } catch (error) {
             alert(error.message || "Error registering user");
@@ -64,29 +61,32 @@ const Register = () => {
     };
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero bg-gradient-to-r from-blue-100 via-white to-purple-100 min-h-screen">
             <title>Register || EduVerse</title>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <Lottie className='ml-4' style={{ width: "260px" }} animationData={registerLottie} loop={true}></Lottie>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card bg-white w-full max-w-sm shrink-0 shadow-2xl border border-blue-300 rounded-xl">
                     <div className="card-body">
-                        <h1 className="text-5xl font-bold">Register now!</h1>
+                        <h1 className="text-4xl font-extrabold text-blue-700 text-center mb-4">Register Now!</h1>
                         <form onSubmit={handleRegister}>
-                            <fieldset className="fieldset">
-                                <label className="label">Name</label>
-                                <input type="text" name="name" className="input" placeholder="Name" required />
-                                <label className="label">Photo URL</label>
-                                <input type="text" name="photoURL" className="input" placeholder="Photo URL" required />
-                                <label className="label">Email</label>
-                                <input type="email" name="email" className="input" placeholder="Email" required />
-                                <label className="label">Password</label>
+                            <fieldset className="fieldset flex flex-col gap-2">
+                                <label className="label text-blue-700 font-semibold">Name</label>
+                                <input type="text" name="name" className="input input-bordered border-blue-400" placeholder="Name" required />
+                                
+                                <label className="label text-blue-700 font-semibold">Photo URL</label>
+                                <input type="text" name="photoURL" className="input input-bordered border-blue-400" placeholder="Photo URL" required />
+                                
+                                <label className="label text-blue-700 font-semibold">Email</label>
+                                <input type="email" name="email" className="input input-bordered border-blue-400" placeholder="Email" required />
+                                
+                                <label className="label text-blue-700 font-semibold">Password</label>
                                 <div className="relative">
                                     <input
                                         type={showPassword ? "text" : "password"}
                                         name="password"
-                                        className="input w-full pr-10"
+                                        className="input input-bordered border-blue-400 w-full pr-10"
                                         placeholder="Password"
                                         required
                                     />
@@ -95,19 +95,16 @@ const Register = () => {
                                         onClick={() => setShowPassword((prev) => !prev)}
                                         tabIndex={0}
                                     >
-                                        {showPassword ? (
-                                            <FaEyeSlash className="w-5 h-5" />
-                                        ) : (
-                                            <FaEye className="w-5 h-5" />
-                                        )}
+                                        {showPassword ? <FaEyeSlash className="w-5 h-5 text-blue-700" /> : <FaEye className="w-5 h-5 text-blue-700" />}
                                     </span>
                                 </div>
-                                <label className="label">Confirm Password</label>
+
+                                <label className="label text-blue-700 font-semibold">Confirm Password</label>
                                 <div className="relative">
                                     <input
                                         type={showConfirmPassword ? "text" : "password"}
                                         name="confirmPassword"
-                                        className="input w-full pr-10"
+                                        className="input input-bordered border-blue-400 w-full pr-10"
                                         placeholder="Confirm Password"
                                         required
                                     />
@@ -116,28 +113,30 @@ const Register = () => {
                                         onClick={() => setShowConfirmPassword((prev) => !prev)}
                                         tabIndex={0}
                                     >
-                                        {showConfirmPassword ? (
-                                            <FaEyeSlash className="w-5 h-5" />
-                                        ) : (
-                                            <FaEye className="w-5 h-5" />
-                                        )}
+                                        {showConfirmPassword ? <FaEyeSlash className="w-5 h-5 text-blue-700" /> : <FaEye className="w-5 h-5 text-blue-700" />}
                                     </span>
                                 </div>
-                                <div className='text-xl font-bold'>Create a password that:</div>
-                                <ul className="text-xs text-gray-500 mb-2 ml-1">
-                                    <li><span className="text-green-600 font-bold">&#10005;</span> contains at least 6 characters</li>
-                                    <li><span className="text-green-600 font-bold">&#10005;</span> contains both lower (a-z) and upper case letters (A-Z)</li>
-                                    <li><span className="text-green-600 font-bold">&#10005;</span> contains at least one number (0-9) or a symbol</li>
-                                    <li><span className="text-green-600 font-bold">&#10005;</span> does not contain your email address</li>
+
+                                <div className='text-xl font-bold text-blue-700 mt-3'>Create a password that:</div>
+                                <ul className="text-sm text-gray-500 mb-2 ml-1">
+                                    <li>✔ At least 8 characters</li>
+                                    <li>✔ Lower & Uppercase letters</li>
+                                    <li>✔ At least one number/symbol</li>
+                                    <li>✔ Not include email</li>
                                 </ul>
-                                {/* <div><a className="link link-hover">Forgot password?</a></div> */}
-                                <button className="btn btn-neutral mt-4">Register</button>
-                                {/* <p className='text-accent font-semibold text-center text-md pt-2'>Allready Have An Account ? <Link to='/login' className='text-red-600 font-bold hover:text-primary'>Login...</Link></p> */}
+
+                                <button className="btn bg-gradient-to-r from-blue-600 to-purple-500 text-white font-semibold mt-4">
+                                    Register
+                                </button>
                             </fieldset>
                         </form>
-                        <SocialLogin></SocialLogin>
 
-                        <p className=' font-semibold text-center text-md pt-2'>Allready Have An Account ? <Link to='/login' className='text-red-600 font-bold hover:text-primary'>Login</Link></p>
+                        <SocialLogin />
+
+                        <p className='font-semibold text-center text-md pt-2'>
+                            Already have an account? 
+                            <Link to='/login' className='text-purple-700 font-bold ml-1 hover:underline'>Login</Link>
+                        </p>
                     </div>
                 </div>
             </div>

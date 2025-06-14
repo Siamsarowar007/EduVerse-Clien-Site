@@ -1,11 +1,27 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React, { use } from 'react';
+import { useParams } from 'react-router';
 import useAuthContext from '../../hook/useAuthContext';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+const fetchData = fetch('http://localhost:5000/courses')
+.then(res=>res.json())
+
+
+
+
 const CourseDetails = () => {
-    const { course_title, photo, instructorName, duration, description, category, deadline, _id } = useLoaderData();
+
+    const courseData = use(fetchData);
+    console.log(courseData);
+
+    const {id}=useParams();
+    const findCourseData =courseData.find(course=>course._id==id)
+    console.log(findCourseData);
+    
+    
+
+    const { course_title, photo, instructorName, duration, description, category, deadline, _id ,availableSeats} = findCourseData;
     const { user } = useAuthContext();
 
     const handleEnroll = async () => {
@@ -59,6 +75,7 @@ const CourseDetails = () => {
                     <div className="flex flex-wrap gap-4 text-blue-700 font-semibold">
                         <span className="bg-blue-100 px-3 py-1 rounded-full">Instructor: {instructorName}</span>
                         <span className="bg-purple-100 px-3 py-1 rounded-full">Category: {category}</span>
+                        <span className="bg-purple-100 px-3 py-1 rounded-full">Seats: {availableSeats}</span>
                         <span className="bg-green-100 px-3 py-1 rounded-full">Duration: {duration}</span>
                         {deadline && <span className="bg-red-100 px-3 py-1 rounded-full">Deadline: {deadline}</span>}
                     </div>

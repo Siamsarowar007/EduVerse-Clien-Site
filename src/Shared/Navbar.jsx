@@ -1,10 +1,9 @@
-import React, { use } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext/AuthContext';
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router'; 
 
 const Navbar = () => {
-
-    const { user, logOut } = use(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleLogout = () => {
         logOut()
@@ -16,21 +15,30 @@ const Navbar = () => {
             });
     };
 
-    //  Links
-    const Links = <>
-        <li><NavLink to="/" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Home</NavLink></li>
-        <li><NavLink to="/addCourse" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Add Course</NavLink></li>
-        <li><NavLink to="/manageCourses" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Manage Courses</NavLink></li>
-        <li><NavLink to="/myEnrollments" className={({ isActive }) => isActive ? activeStyle : normalStyle}>My Enrollment</NavLink></li>
-        <li><NavLink to="/feedback" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Feedback</NavLink></li>
-        
-    </>
-
- 
-
     // Style classes
     const activeStyle = "bg-gradient-to-r from-blue-600 to-purple-500 text-white font-semibold px-4 py-2 rounded-lg";
     const normalStyle = "text-blue-900 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-500 hover:text-white px-4 py-2 rounded-lg font-medium transition duration-300";
+
+    // Links rendering logic
+    const PublicLinks = (
+        <>
+            <li><NavLink to="/" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Home</NavLink></li>
+            <li><NavLink to="/about" className={({ isActive }) => isActive ? activeStyle : normalStyle}>About</NavLink></li>
+            <li><NavLink to="/service" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Service</NavLink></li>
+        </>
+    );
+
+    const PrivateLinks = (
+        <>
+            <li><NavLink to="/" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Home</NavLink></li>
+            <li><NavLink to="/addCourse" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Add Course</NavLink></li>
+            <li><NavLink to="/manageCourses" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Manage Courses</NavLink></li>
+            <li><NavLink to="/myEnrollments" className={({ isActive }) => isActive ? activeStyle : normalStyle}>My Enrollment</NavLink></li>
+            <li><NavLink to="/feedback" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Feedback</NavLink></li>
+            <li><NavLink to="/about" className={({ isActive }) => isActive ? activeStyle : normalStyle}>About</NavLink></li>
+            <li><NavLink to="/service" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Service</NavLink></li>
+        </>
+    );
 
     return (
         <div className="navbar bg-gradient-to-r from-blue-100 via-white to-purple-100 shadow-md sticky top-0 z-50">
@@ -42,7 +50,7 @@ const Navbar = () => {
                         </svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-white rounded-box z-50 mt-3 w-52 p-2 shadow">
-                        {Links }
+                        {user ? PrivateLinks : PublicLinks}
                     </ul>
                 </div>
                 <NavLink to="/" className="btn btn-ghost text-2xl font-extrabold text-blue-700">EduVerse</NavLink>
@@ -50,7 +58,7 @@ const Navbar = () => {
 
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    {Links }
+                    {user ? PrivateLinks : PublicLinks}
                 </ul>
             </div>
 

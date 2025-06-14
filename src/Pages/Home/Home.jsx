@@ -23,16 +23,16 @@ const Home = () => {
     return (
         <div>
             <title>Home || EduVerse</title>
-            <h2 className='text-6xl font-bold text-center'>This is Home Page</h2>
+            
             <Banner></Banner>
             <PopularCourses></PopularCourses>
             <Suspense fallback={'Loading Course...'}>
                 <OurCourses coursesPromise={coursesPromise}></OurCourses>
             </Suspense>
             <LatestNews></LatestNews>
-            <WhyChooseUs></WhyChooseUs>
-            <Testimonials></Testimonials>
-            <UpcomingFeatures></UpcomingFeatures>
+            {/* <WhyChooseUs></WhyChooseUs> */}
+            {/* <Testimonials></Testimonials> */}
+            {/* <UpcomingFeatures></UpcomingFeatures> */}
             <FAQ></FAQ>
             <StatsAndNewsletter></StatsAndNewsletter>
         </div>

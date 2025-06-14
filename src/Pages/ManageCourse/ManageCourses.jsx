@@ -7,13 +7,17 @@ import { useNavigate } from 'react-router';
 const ManageCourses = () => {
   const { user } = useAuthContext();
   const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();
 
   // Load courses of the current user
   useEffect(() => {
     if (user?.email) {
+      setLoading(true); 
       axios.get(`http://localhost:5000/my-courses?email=${user.email}`)
-        .then(res => setCourses(res.data));
+        .then(res => setCourses(res.data))
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false)); 
     }
   }, [user]);
 
@@ -36,49 +40,55 @@ const ManageCourses = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto mt-10 p-6 bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-2xl shadow-lg border border-blue-200">
+    <div className="max-w-6xl mx-auto my-50 p-6 bg-gradient-to-br from-blue-50 via-white to-blue-100  rounded-2xl shadow-lg border border-blue-200">
       <title>Manage Course || EduVerse</title>
       <h1 className="text-4xl font-bold text-blue-800 mb-6 text-center">Manage Your Courses</h1>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white rounded-lg shadow-md">
-          <thead>
-            <tr className="bg-blue-600 text-white">
-              <th className="py-3 px-4 text-left">Title</th>
-              <th className="py-3 px-4 text-left">Description</th>
-              <th className="py-3 px-4 text-center">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {courses.map(course => (
-              <tr key={course._id} className="border-b hover:bg-blue-50">
-                <td className="py-3 px-4">{course.course_title}</td>
-                <td className="py-3 px-4">{course.description.slice(0, 50)}...</td>
-                <td className="py-3 px-4 text-center space-x-3">
-                  <button 
-                    onClick={() => navigate(`/editCourse/${course._id}`)}
-                    className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-                  >
-                    Edit
-                  </button>
-                  <button 
-                    onClick={() => handleDelete(course._id)}
-                    className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
-                  >
-                    Delete
-                  </button>
-                </td>
+      {loading ? (
+        <div className="flex justify-center items-center h-64">
+          <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+        </div>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white rounded-lg shadow-md">
+            <thead>
+              <tr className="bg-blue-600 text-white">
+                <th className="py-3 px-4 text-left">Title</th>
+                <th className="py-3 px-4 text-left">Description</th>
+                <th className="py-3 px-4 text-center">Actions</th>
               </tr>
-            ))}
+            </thead>
+            <tbody>
+              {courses.map(course => (
+                <tr key={course._id} className="border-b hover:bg-blue-50">
+                  <td className="py-3 px-4">{course.course_title}</td>
+                  <td className="py-3 px-4">{course.description.slice(0, 50)}...</td>
+                  <td className="py-3 px-4 text-center space-x-3">
+                    <button 
+                      onClick={() => navigate(`/editCourse/${course._id}`)}
+                      className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+                    >
+                      Edit
+                    </button>
+                    <button 
+                      onClick={() => handleDelete(course._id)}
+                      className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
 
-            {courses.length === 0 && (
-              <tr>
-                <td colSpan="3" className="py-6 text-center text-gray-500">No courses found.</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+              {courses.length === 0 && (
+                <tr>
+                  <td colSpan="3" className="py-6 text-center text-gray-500">No courses found.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

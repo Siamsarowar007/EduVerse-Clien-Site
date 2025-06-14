@@ -13,6 +13,7 @@ import MyEnrollments from '../Pages/MyEnrollments/MyEnrollments';
 import StudentFeedback from '../Pages/StudentFeedback/StudentFeedback';
 import EditCourse from '../Pages/EditCourse/EditCourse';
 import ManageCourses from '../Pages/ManageCourse/ManageCourses';
+import About from '../Pages/About/About';
 
 
 
@@ -58,15 +59,13 @@ const router = createBrowserRouter([
           <ManageCourses></ManageCourses>
         </PrivateRoute>,
       },
-      // {
-      //   path: '/editCourse/:id',
-      //   element: 
-      // },
+
       {
         path: '/myEnrollments',
         element: <PrivateRoute>
           <MyEnrollments></MyEnrollments>
         </PrivateRoute>
+        
       },
       {
         path: '/editCourse/:id',
@@ -76,10 +75,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/feedback',
-        Component: StudentFeedback,
+          element: <PrivateRoute>
+          <StudentFeedback></StudentFeedback>
+        </PrivateRoute>,
       },
       {
-        path: '/services',
+        path: '/about',
+        Component: About,
+      },
+      {
+        path: '/service',
         Component: Services,
       },
       {

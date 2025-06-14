@@ -11,7 +11,7 @@ const CourseCard = ({ course }) => {
         : '';
 
     return (
-        <div className="bg-gradient-to-br from-blue-100 via-white to-purple-100 rounded-2xl shadow-xl border border-blue-200 w-full max-w-xs mx-auto hover:scale-105 transition-transform duration-300">
+        <div className="bg-gradient-to-br from-blue-100 via-white to-purple-100 rounded-2xl shadow-xl border border-blue-200 w-full mx-auto hover:scale-105 transition-transform duration-300">
             <div className="overflow-hidden rounded-t-2xl h-48 flex items-center justify-center bg-blue-50">
                 <img
                     src={photo}
