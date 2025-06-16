@@ -21,13 +21,13 @@ const AddCourse = () => {
       status: 'pending',
     };
 
-    // availableSeats should be saved as number
+    // availableSeats 
     newCourses.availableSeats = parseInt(newCourses.availableSeats);
 
     console.log(newCourses);
 
     axios
-      .post('http://localhost:5000/courses', newCourses)
+      .post('https://assignment-11-server-site-ashen.vercel.app/courses', newCourses)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {

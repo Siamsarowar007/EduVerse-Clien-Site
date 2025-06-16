@@ -6,12 +6,18 @@ import Swal from 'sweetalert2';
 const MyEnrollments = () => {
     const { user } = useAuthContext();
     const [enrollments, setEnrollments] = useState([]);
-    const [loading, setLoading] = useState(true);  
+    const [loading, setLoading] = useState(true); 
+    console.log('token in the context',user.accessToken) 
 
     useEffect(() => {
         if (user?.email) {
             setLoading(true); 
-            axios.get(`http://localhost:5000/my-enrollments?email=${user.email}`)
+            axios.get(`https://assignment-11-server-site-ashen.vercel.app/my-enrollments?email=${user.email}`,{
+                headers:{
+                    authorization: `Bearer ${user.accessToken}`
+                }
+            })
+            
                 .then(res => setEnrollments(res.data))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false)); 
@@ -31,7 +37,7 @@ const MyEnrollments = () => {
 
         if (confirm.isConfirmed) {
             try {
-                await axios.delete(`http://localhost:5000/enrollments/${id}`);
+                await axios.delete(`https://assignment-11-server-site-ashen.vercel.app/enrollments/${id}`);
                 setEnrollments(enrollments.filter(enrollment => enrollment._id !== id));
                 Swal.fire("Removed!", "Your enrollment has been removed.", "success");
             } catch (error) {
@@ -46,7 +52,7 @@ const MyEnrollments = () => {
             <title>MyEnrollments || EduVerse</title>
             <h1 className="text-3xl font-bold mb-6">My Enrollments</h1>
 
-            {/* Loading Spinner */}
+            {/* loading spinner */}
             {loading ? (
                 <div className="flex justify-center items-center h-64">
                     <div className="w-16 h-16 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>

@@ -13,6 +13,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const from = location.state?.from?.pathname || "/";
 
     const validatePassword = (password, email) => {
         const minLength = /.{8,}/;
@@ -54,7 +55,7 @@ const Register = () => {
                 displayName: name,
                 photoURL: photoURL
             });
-            navigate("/");
+           navigate(from, { replace: true });
         } catch (error) {
             alert(error.message || "Error registering user");
         }
@@ -63,24 +64,28 @@ const Register = () => {
     return (
         <div className="hero bg-gradient-to-r from-blue-100 via-white to-purple-100 min-h-screen">
             <title>Register || EduVerse</title>
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
-                    <Lottie className='ml-4' style={{ width: "260px" }} animationData={registerLottie} loop={true}></Lottie>
+            <div className="hero-content flex-col lg:flex-row w-full lg:w-4/5 mx-auto">
+                
+                {/* Lottie */}
+                <div className="w-full lg:w-1/2 flex justify-center mb-6 lg:mb-0">
+                    <Lottie className='ml-4' style={{ width: "100%", maxWidth: "400px" }} animationData={registerLottie} loop={true}></Lottie>
                 </div>
-                <div className="card bg-white w-full max-w-sm shrink-0 shadow-2xl border border-blue-300 rounded-xl">
+
+                {/* Form */}
+                <div className="card bg-white w-full lg:w-1/2 max-w-md shadow-2xl border border-blue-300 rounded-xl">
                     <div className="card-body">
                         <h1 className="text-4xl font-extrabold text-blue-700 text-center mb-4">Register Now!</h1>
                         <form onSubmit={handleRegister}>
                             <fieldset className="fieldset flex flex-col gap-2">
                                 <label className="label text-blue-700 font-semibold">Name</label>
-                                <input type="text" name="name" className="input input-bordered border-blue-400" placeholder="Name" required />
-                                
+                                <input type="text" name="name" className="input input-bordered border-blue-400 w-full" placeholder="Name" required />
+
                                 <label className="label text-blue-700 font-semibold">Photo URL</label>
-                                <input type="text" name="photoURL" className="input input-bordered border-blue-400" placeholder="Photo URL" required />
-                                
+                                <input type="text" name="photoURL" className="input input-bordered border-blue-400 w-full" placeholder="Photo URL" required />
+
                                 <label className="label text-blue-700 font-semibold">Email</label>
-                                <input type="email" name="email" className="input input-bordered border-blue-400" placeholder="Email" required />
-                                
+                                <input type="email" name="email" className="input input-bordered border-blue-400 w-full" placeholder="Email" required />
+
                                 <label className="label text-blue-700 font-semibold">Password</label>
                                 <div className="relative">
                                     <input

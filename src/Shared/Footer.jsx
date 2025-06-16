@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className="bg-gradient-to-r from-blue-100 via-white to-purple-100 py-10 mt-20">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-5">
                 
-                {/* Column 1 - Logo & Slogan */}
+                {/* Logo */}
                 <div>
                     <NavLink to="/" className="text-3xl font-extrabold text-blue-700">EduVerse</NavLink>
                     <p className="text-blue-900 mt-3 font-medium">
@@ -21,7 +21,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Column 2 - Quick Links */}
+                {/*  Quick Links */}
                 <div>
                     <h3 className="text-xl font-bold text-blue-700 mb-4">Quick Links</h3>
                     <ul className="space-y-2 text-blue-900 font-medium">
@@ -32,7 +32,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Column 3 - Support */}
+                {/* support */}
                 <div>
                     <h3 className="text-xl font-bold text-blue-700 mb-4">Support</h3>
                     <ul className="space-y-2 text-blue-900 font-medium">

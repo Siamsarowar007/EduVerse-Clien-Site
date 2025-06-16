@@ -14,7 +14,7 @@ const ManageCourses = () => {
   useEffect(() => {
     if (user?.email) {
       setLoading(true); 
-      axios.get(`http://localhost:5000/my-courses?email=${user.email}`)
+      axios.get(`https://assignment-11-server-site-ashen.vercel.app/my-courses?email=${user.email}`)
         .then(res => setCourses(res.data))
         .catch(err => console.log(err))
         .finally(() => setLoading(false)); 
@@ -32,7 +32,7 @@ const ManageCourses = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:5000/courses/${id}`);
+        await axios.delete(`https://assignment-11-server-site-ashen.vercel.app/courses/${id}`);
         Swal.fire('Deleted!', 'Your course has been deleted.', 'success');
         setCourses(courses.filter(course => course._id !== id));
       }

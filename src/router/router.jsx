@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         // element: <PrivateRoute>
         //   <CourseDetails></CourseDetails>
         // </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-11-server-site-ashen.vercel.app/courses/${params.id}`)
       },
       {
         path: '/manageCourses',

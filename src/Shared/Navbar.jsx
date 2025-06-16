@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext/AuthContext';
-import { NavLink } from 'react-router'; 
+import { NavLink } from 'react-router';
+import NavImg from '../../public/EduVerse.png'
+
+
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -19,7 +22,7 @@ const Navbar = () => {
     const activeStyle = "bg-gradient-to-r from-blue-600 to-purple-500 text-white font-semibold px-4 py-2 rounded-lg";
     const normalStyle = "text-blue-900 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-500 hover:text-white px-4 py-2 rounded-lg font-medium transition duration-300";
 
-    // Links rendering logic
+    // links 
     const PublicLinks = (
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Home</NavLink></li>
@@ -41,7 +44,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="navbar bg-gradient-to-r from-blue-100 via-white to-purple-100 shadow-md sticky top-0 z-50">
+        <div className="navbar bg-gradient-to-r px-2 md:px-8 from-blue-100 via-white to-purple-100 shadow-md sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -53,7 +56,11 @@ const Navbar = () => {
                         {user ? PrivateLinks : PublicLinks}
                     </ul>
                 </div>
-                <NavLink to="/" className="btn btn-ghost text-2xl font-extrabold text-blue-700">EduVerse</NavLink>
+                <div className='flex gap-2'>
+                    <img className='w-[40px]  gap-2' src={NavImg} alt="" />
+                    <h2 className='text-2xl font-extrabold hidden md:block text-blue-700'>EduVerse</h2>
+                </div>
+                
             </div>
 
             <div className="navbar-center hidden lg:flex">

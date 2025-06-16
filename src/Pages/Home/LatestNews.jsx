@@ -67,7 +67,7 @@ const LatestNews = () => {
   return (
     <div className="max-w-7xl mx-auto py-16 px-4 bg-gradient-to-r from-blue-50 to-white rounded-xl shadow-lg">
       <h2 className="text-4xl font-bold text-center text-blue-800 mb-12">
-        Latest Course News & Insights
+        Course News & Insights
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">

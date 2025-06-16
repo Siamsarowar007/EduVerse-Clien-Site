@@ -9,7 +9,7 @@ const PopularCourses = () => {
     useEffect(() => {
         const fetchPopularCourses = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/popular-courses');
+                const res = await axios.get('https://assignment-11-server-site-ashen.vercel.app/popular-courses');
                 setPopularCourses(res.data);
                 setLoading(false);
             } catch (error) {

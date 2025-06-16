@@ -11,7 +11,7 @@ const EditCourse = () => {
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/courses/${id}`)
+    axios.get(`https://assignment-11-server-site-ashen.vercel.app/courses/${id}`)
       .then(res => setCourse(res.data));
   }, [id]);
 
@@ -29,7 +29,7 @@ const EditCourse = () => {
       status: course.status
     };
 
-    axios.put(`http://localhost:5000/courses/${id}`, updatedCourse)
+    axios.put(`https://assignment-11-server-site-ashen.vercel.app/courses/${id}`, updatedCourse)
       .then(res => {
         if (res.data.modifiedCount > 0) {
           Swal.fire('Success!', 'Course updated successfully', 'success');
