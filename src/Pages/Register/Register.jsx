@@ -13,7 +13,6 @@ const Register = () => {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const from = location.state?.from?.pathname || "/";
 
     const validatePassword = (password, email) => {
         const minLength = /.{8,}/;
@@ -55,7 +54,7 @@ const Register = () => {
                 displayName: name,
                 photoURL: photoURL
             });
-           navigate(from, { replace: true });
+            navigate("/");
         } catch (error) {
             alert(error.message || "Error registering user");
         }

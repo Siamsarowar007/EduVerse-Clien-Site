@@ -1,19 +1,15 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Contexts/AuthContext/AuthContext';
 import { FaGithub } from 'react-icons/fa';
-import { useNavigate } from 'react-router';
 
 const SocialLogin = () => {
     const { signInWithGoogle, signInWithGithub } = use(AuthContext);
-    const navigate = useNavigate();
-    const from = location.state?.from?.pathname || "/";
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then((result) => {
                 const user = result.user;
                 console.log("User signed in with Google:", user);
-                navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.error("Error signing in with Google:", error);
@@ -25,7 +21,6 @@ const SocialLogin = () => {
             .then((result) => {
                 const user = result.user;
                 console.log("User signed in with Github:", user);
-                navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.error("Error signing in with Github:", error);
