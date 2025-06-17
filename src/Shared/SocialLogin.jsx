@@ -1,18 +1,36 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Contexts/AuthContext/AuthContext';
 import { FaGithub } from 'react-icons/fa';
+import { useLocation, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
     const { signInWithGoogle, signInWithGithub } = use(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then((result) => {
                 const user = result.user;
                 console.log("User signed in with Google:", user);
+                   Swal.fire({ 
+                    icon: 'success',
+                    title: 'Logged in!',
+                    text: `Welcome, ${user.displayName || 'User'} 😊`,
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.error("Error signing in with Google:", error);
+                  Swal.fire({ 
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: error.message,
+                });
             });
     }
 
@@ -21,9 +39,22 @@ const SocialLogin = () => {
             .then((result) => {
                 const user = result.user;
                 console.log("User signed in with Github:", user);
+                 Swal.fire({
+                    icon: 'success',
+                    title: 'Logged in!',
+                    text: `Welcome, ${user.displayName || 'User'} 😊`,
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+                navigate(from, { replace: true });
             })
             .catch((error) => {
                 console.error("Error signing in with Github:", error);
+                 Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: error.message,
+                });
             });
     };
 

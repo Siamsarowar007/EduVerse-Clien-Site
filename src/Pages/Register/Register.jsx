@@ -6,6 +6,7 @@ import SocialLogin from '../../Shared/SocialLogin';
 import { useNavigate, Link } from 'react-router';
 import { updateProfile } from 'firebase/auth';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
@@ -13,6 +14,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const from = location.state?.from?.pathname || "/";
 
     const validatePassword = (password, email) => {
         const minLength = /.{8,}/;
@@ -40,11 +42,19 @@ const Register = () => {
 
         const errorMsg = validatePassword(password, email);
         if (errorMsg) {
-            alert(errorMsg);
+                Swal.fire({ 
+                icon: 'error',
+                title: 'Password Error',
+                text: errorMsg,
+            });
             return;
         }
         if (password !== confirmPassword) {
-            alert("Passwords do not match.");
+               Swal.fire({ 
+                icon: 'error',
+                title: 'Password Mismatch',
+                text: 'Passwords do not match.',
+            });
             return;
         }
 
@@ -54,9 +64,20 @@ const Register = () => {
                 displayName: name,
                 photoURL: photoURL
             });
-            navigate("/");
+               Swal.fire({ 
+                icon: 'success',
+                title: 'Registration Successful!',
+                text: `Welcome, ${name}!`,
+                timer: 2000,
+                showConfirmButton: false
+            });
+           navigate(from, { replace: true });
         } catch (error) {
-            alert(error.message || "Error registering user");
+               Swal.fire({ 
+                icon: 'error',
+                title: 'Registration Failed',
+                text: error.message || 'Error registering user',
+            });
         }
     };
 

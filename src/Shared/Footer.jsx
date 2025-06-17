@@ -38,8 +38,8 @@ const Footer = () => {
                     <ul className="space-y-2 text-blue-900 font-medium">
                         <li><NavLink to="/">FAQ</NavLink></li>
                         <li><NavLink to="/feedback">Feedback</NavLink></li>
-                        <li><NavLink to="/contact">Contact Us</NavLink></li>
-                        <li><NavLink to="/privacy">Privacy Policy</NavLink></li>
+                        <li><NavLink to="/about">About</NavLink></li>
+                        <li><NavLink to="/service">Service</NavLink></li>
                     </ul>
                 </div>
             </div>

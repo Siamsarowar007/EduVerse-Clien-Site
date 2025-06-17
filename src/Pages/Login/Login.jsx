@@ -1,4 +1,4 @@
-import React, { use, useState} from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthContext/AuthContext';
 // import loginLottie from '../../assets/Lottie-Animation/Login-Animation - 1748612619349.json';
 import registerLottie from "../../assets/Lottie-Animation/Register-Animation.json";
@@ -6,6 +6,7 @@ import Lottie from 'lottie-react';
 import SocialLogin from '../../Shared/SocialLogin';
 import { useNavigate, useLocation, Link } from 'react-router';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { signInUser } = use(AuthContext);
@@ -26,10 +27,22 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successful',
+                    text: `Welcome back, ${user.displayName || user.email}!`,
+                    timer: 1500,
+                    showConfirmButton: false,
+                });
                 navigate(from, { replace: true });
             })
             .catch((error) => {
-                setError(error.message || "Error signing in");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: error.message || "Error signing in",
+                });
+
             });
     };
 
@@ -52,7 +65,7 @@ const Login = () => {
                                 <fieldset className="fieldset flex flex-col gap-2">
                                     <label className="label text-blue-700 font-semibold">Email</label>
                                     <input type="email" name="name" className="input input-bordered border-blue-400 w-full" placeholder="Email" />
-                                    
+
                                     <label className="label text-blue-700 font-semibold">Password</label>
                                     <div className="relative">
                                         <input
@@ -89,7 +102,7 @@ const Login = () => {
                             <SocialLogin></SocialLogin>
 
                             <p className='font-semibold text-center text-md pt-2'>
-                                Don't have an account? 
+                                Don't have an account?
                                 <Link to='/register' className='text-purple-700 font-bold ml-1 hover:underline'>Register</Link>
                             </p>
                         </div>

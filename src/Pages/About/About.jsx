@@ -5,7 +5,7 @@ import CountUp from 'react-countup';
 const About = () => {
     return (
         <div className="max-w-7xl mx-auto px-4 py-20">
-
+            <title>About || EduVerse</title>
             {/* Hero Section */}
             <motion.div
                 className="mb-20 bg-gradient-to-r from-blue-100 via-white to-purple-100 p-12 rounded-3xl shadow-xl flex flex-col items-center text-center"
@@ -53,10 +53,11 @@ const About = () => {
                 </p>
             </div>
 
-            {/* Our Achievements with CountUp */}
+            {/* Our Achievements with CountUp  */}
             <div className="mb-20">
                 <h2 className="text-4xl font-bold text-center text-blue-800 mb-16">Our Achievements</h2>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+
                     <motion.div className="p-8 rounded-2xl shadow-xl bg-blue-50" whileHover={{ scale: 1.05 }}>
                         <h3 className="text-5xl font-extrabold text-blue-600 mb-2">
                             <CountUp end={50} duration={3} />+
@@ -85,22 +86,21 @@ const About = () => {
                         <p className="text-lg text-gray-700 font-semibold">Student Satisfaction</p>
                     </motion.div>
 
-                    {/* Additional Stats */}
-                    <motion.div className="p-8 rounded-2xl shadow-xl bg-yellow-50 col-span-1 md:col-span-2" whileHover={{ scale: 1.05 }}>
+                    <motion.div className="p-8 rounded-2xl shadow-xl bg-yellow-50 sm:col-span-2 lg:col-span-2" whileHover={{ scale: 1.05 }}>
                         <h3 className="text-5xl font-extrabold text-yellow-600 mb-2">
                             <CountUp end={20} duration={3} />+
                         </h3>
                         <p className="text-lg text-gray-700 font-semibold">Corporate Partners</p>
                     </motion.div>
 
-                    <motion.div className="p-8 rounded-2xl shadow-xl bg-indigo-50 col-span-1 md:col-span-2" whileHover={{ scale: 1.05 }}>
+                    <motion.div className="p-8 rounded-2xl shadow-xl bg-indigo-50 sm:col-span-2 lg:col-span-2" whileHover={{ scale: 1.05 }}>
                         <h3 className="text-5xl font-extrabold text-indigo-600 mb-2">
                             <CountUp end={15} duration={3} />+
                         </h3>
                         <p className="text-lg text-gray-700 font-semibold">Countries Reached</p>
                     </motion.div>
 
-                    <motion.div className="p-8 rounded-2xl shadow-xl bg-teal-50 col-span-4" whileHover={{ scale: 1.05 }}>
+                    <motion.div className="p-8 rounded-2xl shadow-xl bg-teal-50 sm:col-span-2 lg:col-span-4" whileHover={{ scale: 1.05 }}>
                         <h3 className="text-5xl font-extrabold text-teal-600 mb-2">
                             <CountUp end={150} duration={3} />+
                         </h3>

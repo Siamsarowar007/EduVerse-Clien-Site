@@ -26,6 +26,7 @@ const Services = () => {
 
     return (
         <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <title>Service || EduVerse</title>
             {/* Pg title */}
             <div className="text-center mb-12">
                 <h1 className="text-5xl font-extrabold text-indigo-900 mb-4">Why Choose EduVerse?</h1>
