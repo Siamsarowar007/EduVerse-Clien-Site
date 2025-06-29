@@ -63,8 +63,8 @@ const CourseDetails = () => {
       );
 
       if (res.data.enrolled) {
-        setEnrolled(true); //  update enrolled state
-        setSeats(prev => prev - 1); //  decrease seat count
+        setEnrolled(true);
+        setSeats(prev => prev - 1); 
 
         Swal.fire({
           icon: "success",
