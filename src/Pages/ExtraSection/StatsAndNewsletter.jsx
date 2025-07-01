@@ -54,7 +54,7 @@ const StatsAndNewsletter = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="max-w-7xl mx-auto rounded-3xl shadow-xl overflow-hidden">
      
       <div
         ref={statsRef}
@@ -73,16 +73,16 @@ const StatsAndNewsletter = () => {
 
       {/* Newsletter */}
       <div className="bg-gradient-to-r from-yellow-400 to-orange-400 py-16 flex flex-col items-center">
-        <h2 className="text-3xl font-semibold mb-8 text-white drop-shadow-md">Subscribe to our Newsletter</h2>
+        <h2 className="text-3xl font-semibold mb-8 text-blue-500 drop-shadow-md">Subscribe to our Newsletter</h2>
         <form onSubmit={handleSubscribe} className="flex flex-col md:flex-row items-center gap-4">
           <input
             type="email"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="py-4 px-6 rounded-full w-80 md:w-96 shadow-md text-gray-700 outline-none"
+            className="md:py-4 py-3 px-6 bg-white rounded-full w-80 md:w-96 shadow-lg text-gray-700 outline-none"
           />
-          <button type="submit" className="bg-black text-white px-10 py-4 rounded-full shadow-md hover:scale-105 transition transform duration-300 font-semibold">
+          <button type="submit" className="bg-black text-white px-6 py-3 md:px-10 md:py-4 rounded-full shadow-md hover:scale-105 transition transform duration-300 font-semibold">
             Subscribe
           </button>
         </form>

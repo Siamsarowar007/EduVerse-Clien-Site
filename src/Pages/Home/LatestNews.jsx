@@ -65,8 +65,8 @@ const courseNewsData = [
 
 const LatestNews = () => {
   return (
-    <div className="max-w-7xl mx-auto py-16 px-4 bg-gradient-to-r from-blue-50 to-white rounded-xl shadow-lg">
-      <h2 className="text-4xl font-bold text-center text-blue-800 mb-12">
+    <div className="max-w-7xl mx-auto py-12 px-4 bg-gradient-to-r from-blue-50 to-white rounded-xl shadow-lg">
+      <h2 className="text-4xl font-bold text-center text-blue-500 mb-16">
         Course News & Insights
       </h2>
 

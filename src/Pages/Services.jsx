@@ -83,7 +83,7 @@ const Services = () => {
 
             {/* Upcoming Features */}
             <div className="my-20">
-                <h2 className="text-4xl font-extrabold text-indigo-900 mb-8 text-center">Upcoming Features</h2>
+                <h2 className="text-4xl font-extrabold text-indigo-900 mb-16 text-center">Upcoming Features</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     {upcomingFeatures.map((feature, index) => (
                         <motion.div
@@ -103,7 +103,7 @@ const Services = () => {
                 </div>
             </div>
 
-            <motion.div className="my-20 bg-indigo-100 py-16 rounded-3xl shadow-xl">
+            <motion.div className="my-20 bg-indigo-100 px-6 py-16 rounded-3xl shadow-xl">
                 <h2 className="text-4xl font-extrabold text-center text-indigo-900 mb-10">Our Impact & Growth</h2>
                 <p className="text-center max-w-3xl mx-auto text-gray-700 mb-12">
                     At EduVerse, we are proud of the milestones we have achieved. Our focus remains on delivering quality education and empowering learners worldwide.
@@ -174,7 +174,7 @@ const Services = () => {
             {/* Call To Action */}
 
             <motion.div
-                className="text-center my-20"
+                className="text-center mt-20 "
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -185,7 +185,7 @@ const Services = () => {
                 </p>
                 <Link to="/">
                     <motion.button
-                        className="bg-indigo-700 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:bg-indigo-800 transition duration-300"
+                        className="bg-indigo-700 text-white font-bold md:px-8 px-6 py-3 md:py-4 rounded-full shadow-lg hover:bg-indigo-800 transition duration-300"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >

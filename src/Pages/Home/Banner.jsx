@@ -35,10 +35,10 @@ const Banner = () => {
   };
 
   return (
-    <section className="relative">
+    <section className="relative mt-8 rounded-lg shadow-lg overflow-hidden">
       <Slider {...settings}>
         {bannerData.map((slide, index) => (
-          <div key={index} className="relative h-[70vh] md:h-[90vh] w-full">
+          <div key={index} className="relative h-[60vh] md:h-[65vh] lg:h-[70vh] w-full">
             <img
               src={slide.image}
               alt="Banner"

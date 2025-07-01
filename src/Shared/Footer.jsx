@@ -26,6 +26,7 @@ const Footer = () => {
                     <h3 className="text-xl font-bold text-blue-700 mb-4">Quick Links</h3>
                     <ul className="space-y-2 text-blue-900 font-medium">
                         <li><NavLink to="/">Home</NavLink></li>
+                        <li><NavLink to="/allCourses">All Course</NavLink></li>
                         <li><NavLink to="/addCourse">Add Course</NavLink></li>
                         <li><NavLink to="/manageCourses">Manage Courses</NavLink></li>
                         <li><NavLink to="/myEnrollments">My Enrollment</NavLink></li>

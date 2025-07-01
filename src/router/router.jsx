@@ -14,6 +14,8 @@ import StudentFeedback from '../Pages/StudentFeedback/StudentFeedback';
 import EditCourse from '../Pages/EditCourse/EditCourse';
 import ManageCourses from '../Pages/ManageCourse/ManageCourses';
 import About from '../Pages/About/About';
+import AllCourses from '../Pages/AllCourses/AllCourses';
+import Loader from '../Shared/Loader';
 
 
 
@@ -37,6 +39,12 @@ const router = createBrowserRouter([
       {
         path: '/login',
         Component: Login,
+      },
+      {
+        path: '/allCourses',
+        Component: AllCourses,
+        loader: () => fetch('https://assignment-11-server-site-ashen.vercel.app/courses'),
+        hydrateFallbackElement: <Loader></Loader>
       },
       {
         path: '/addCourse',

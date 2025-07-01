@@ -26,6 +26,7 @@ const Navbar = () => {
     const PublicLinks = (
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Home</NavLink></li>
+            <li><NavLink to="/allCourses" className={({ isActive }) => isActive ? activeStyle : normalStyle}>All Courses</NavLink></li>
             <li><NavLink to="/about" className={({ isActive }) => isActive ? activeStyle : normalStyle}>About</NavLink></li>
             <li><NavLink to="/service" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Service</NavLink></li>
         </>
@@ -34,6 +35,7 @@ const Navbar = () => {
     const PrivateLinks = (
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Home</NavLink></li>
+            <li><NavLink to="/allCourses" className={({ isActive }) => isActive ? activeStyle : normalStyle}>All Courses</NavLink></li>
             <li><NavLink to="/addCourse" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Add Course</NavLink></li>
             <li><NavLink to="/manageCourses" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Manage Courses</NavLink></li>
             <li><NavLink to="/myEnrollments" className={({ isActive }) => isActive ? activeStyle : normalStyle}>My Enrollment</NavLink></li>
@@ -44,7 +46,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="navbar bg-gradient-to-r px-2 md:px-8 from-blue-100 via-white to-purple-100 shadow-md sticky top-0 z-50">
+        <div className="navbar bg-gradient-to-r  from-blue-100 via-white to-purple-100 px-2 md:px-8 shadow-md sticky top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

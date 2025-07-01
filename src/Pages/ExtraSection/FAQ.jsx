@@ -80,7 +80,7 @@ const FAQ = () => {
     ];
 
     return (
-        <section className="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-black py-20 px-6 sm:px-10 my-12 lg:px-16 rounded-3xl shadow-xl overflow-hidden">
+        <section className="relative max-w-7xl mx-auto bg-gradient-to-br from-indigo-900 via-purple-900 to-black py-20 px-6 sm:px-10 my-12 lg:px-16 rounded-3xl shadow-xl overflow-hidden">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
                 {/* Left Section */}
                 <div className="flex flex-col justify-center">

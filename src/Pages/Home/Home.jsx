@@ -24,7 +24,7 @@ const Home = () => {
     return (
         <div>
             <title>Home || EduVerse</title>
-            <SplashCursor></SplashCursor>
+            {/* <SplashCursor></SplashCursor> */}
             <Banner></Banner>
             <PopularCourses></PopularCourses>
             <Suspense fallback={'Loading Course...'}>
