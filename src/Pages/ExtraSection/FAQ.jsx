@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router';
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
     return (
@@ -10,7 +11,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
             <button
                 className="flex justify-between items-center w-full text-left text-lg font-semibold 
   👉 text-blue-500 👈 
-  hover:text-orange-400 transition-colors"
+  hover:text-blue-600 transition-colors"
                 onClick={onClick}
             >
                 <span>{question}</span>
@@ -80,20 +81,23 @@ const FAQ = () => {
     ];
 
     return (
-        <section className="relative max-w-7xl mx-auto bg-gradient-to-br from-indigo-900 via-purple-900 to-black py-20 px-6 sm:px-10 my-12 lg:px-16 rounded-3xl shadow-xl overflow-hidden">
+        <section className="relative max-w-7xl mx-auto bg-gradient-to-br from-[#e6f0ff] via-white to-[#cce0ff] py-20 px-6 sm:px-10 my-12 lg:px-16 rounded-3xl shadow-xl overflow-hidden">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
                 {/* Left Section */}
                 <div className="flex flex-col justify-center">
-                    <h2 className="text-sm font-semibold tracking-widest text-orange-400 mb-3 uppercase">FAQs</h2>
-                    <h3 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6 drop-shadow-lg">
+                    <h2 className="text-sm font-semibold tracking-widest text-blue-700 mb-6 uppercase">FAQs</h2>
+                    <h3 className="text-4xl sm:text-5xl font-bold text-blue-700 leading-tight mb-4 drop-shadow-lg">
                         Course Enrollment <br /> Frequently Asked Questions
                     </h3>
-                    <p className="text-white/80 mb-8 max-w-md text-base leading-relaxed">
+                    <p className="text-white/80 mb-4 max-w-md text-base leading-relaxed">
                         Find quick answers to your questions about enrolling in our courses, payment options, and more.
                     </p>
-                    <button className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-orange-600 transition duration-300 w-fit font-semibold">
-                        Contact Support
-                    </button>
+                    {/* <button className="bg-gradient-to-r from-blue-600 to-purple-500 hover:from-blue-700 hover:to-purple-600 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 w-fit font-semibold">
+                        Service
+                    </button> */}
+                    <Link to='/service' className="bg-gradient-to-r from-blue-600 to-purple-500 hover:from-blue-700 hover:to-purple-600 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 w-fit font-semibold">
+                        Service
+                    </Link>
                 </div>
 
                 {/* Right Section - FAQs */}
