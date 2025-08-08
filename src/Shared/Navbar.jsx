@@ -139,9 +139,9 @@ const Navbar = () => {
         <>
             <li><NavLink to="/" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Home</NavLink></li>
             <li><NavLink to="/allCourses" className={({ isActive }) => isActive ? activeStyle : normalStyle}>All Courses</NavLink></li>
-            <li><NavLink to="/addCourse" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Add Course</NavLink></li>
+            {/* <li><NavLink to="/addCourse" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Add Course</NavLink></li>
             <li><NavLink to="/manageCourses" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Manage Courses</NavLink></li>
-            <li><NavLink to="/myEnrollments" className={({ isActive }) => isActive ? activeStyle : normalStyle}>My Enrollment</NavLink></li>
+            <li><NavLink to="/myEnrollments" className={({ isActive }) => isActive ? activeStyle : normalStyle}>My Enrollment</NavLink></li> */}
             <li><NavLink to="/feedback" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Feedback</NavLink></li>
             <li><NavLink to="/about" className={({ isActive }) => isActive ? activeStyle : normalStyle}>About</NavLink></li>
             <li><NavLink to="/service" className={({ isActive }) => isActive ? activeStyle : normalStyle}>Service</NavLink></li>
