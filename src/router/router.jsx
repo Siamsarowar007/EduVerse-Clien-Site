@@ -16,9 +16,9 @@ import ManageCourses from '../Pages/ManageCourse/ManageCourses';
 import About from '../Pages/About/About';
 import AllCourses from '../Pages/AllCourses/AllCourses';
 import Loader from '../Shared/Loader';
-
-
-
+import DashboardHome from '../Dashboard/DashboardHome';
+import { path } from 'framer-motion/client';
+import DashboardLayout from '../Dashboard/DashboardLayout';
 
 
 
@@ -54,11 +54,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/courses/:id',
-        element: <CourseDetails></CourseDetails>
-        ,
-        // element: <PrivateRoute>
-        //   <CourseDetails></CourseDetails>
-        // </PrivateRoute>,
+        element: <CourseDetails></CourseDetails>,
         loader: ({ params }) => fetch(`https://assignment-11-server-site-ashen.vercel.app/courses/${params.id}`)
       },
       {
@@ -73,7 +69,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyEnrollments></MyEnrollments>
         </PrivateRoute>
-        
+
       },
       {
         path: '/editCourse/:id',
@@ -83,7 +79,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/feedback',
-          element: <PrivateRoute>
+        element: <PrivateRoute>
           <StudentFeedback></StudentFeedback>
         </PrivateRoute>,
       },
@@ -95,12 +91,23 @@ const router = createBrowserRouter([
         path: '/service',
         Component: Services,
       },
+
+    ]
+  },
+  {
+    path: "/dashboard",
+    Component: DashboardLayout,
+    children: [
       {
-        path: '/*',
-        Component: ErrorPage,
+        path: 'dashboard',
+        element: <DashboardHome></DashboardHome>,
       },
     ]
   },
+  {
+    path: "/*",
+    Component: ErrorPage,
+  }
 ]);
 
 export default router;
