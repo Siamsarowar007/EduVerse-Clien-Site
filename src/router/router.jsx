@@ -94,16 +94,30 @@ const router = createBrowserRouter([
 
     ]
   },
+
   {
-    path: "/dashboard",
-    Component: DashboardLayout,
-    children: [
-      {
-        path: 'dashboard',
-        element: <DashboardHome></DashboardHome>,
-      },
-    ]
-  },
+  path: '/dashboard',
+  element: <DashboardLayout />,
+  children: [
+    {
+      index: true,
+      element: <DashboardHome />,
+    },
+    {
+      path: 'myEnrollments',
+      element: <MyEnrollments />,
+    },
+    {
+      path: 'addCourse',
+      element: <AddCourse />,
+    },
+    {
+      path: 'manageCourses',
+      element: <ManageCourses />,
+    }
+  ]
+},
+
   {
     path: "/*",
     Component: ErrorPage,
