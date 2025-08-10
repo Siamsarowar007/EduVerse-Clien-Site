@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 // Banner Data
 const bannerData = [
@@ -65,12 +66,14 @@ const Banner = () => {
               >
                 {slide.subtitle}
               </motion.p>
-              <motion.button
-                className="bg-orange-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold shadow-lg hover:bg-orange-600 transition duration-300"
-                whileHover={{ scale: 1.05 }}
-              >
-                Explore Courses
-              </motion.button>
+              <Link to="/allCourses">
+                <motion.button
+                  className="bg-orange-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold shadow-lg hover:bg-orange-600 transition duration-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  Explore Courses
+                </motion.button>
+              </Link>
             </div>
           </div>
         ))}
