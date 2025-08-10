@@ -62,7 +62,7 @@
 //                     <img className='w-[40px]  gap-2' src={NavImg} alt="" />
 //                     <h2 className='text-2xl font-extrabold hidden md:block text-blue-700'>EduVerse</h2>
 //                 </div>
-                
+
 //             </div>
 
 //             <div className="navbar-center hidden lg:flex">
@@ -104,8 +104,10 @@
 
 import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext/AuthContext';
-import { NavLink } from 'react-router'; // ✅ Fixed import
+import { NavLink } from 'react-router'; 
 import NavImg from '../../public/EduVerse.png';
+import { FiHome } from "react-icons/fi";
+
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -185,12 +187,13 @@ const Navbar = () => {
                             <ul tabIndex={0} className="mt-3 p-3 shadow menu menu-sm dropdown-content bg-white rounded-box w-60">
                                 <li className="text-blue-700 font-semibold px-2 py-1">{user.displayName}</li>
 
-                                {/* ✅ Dashboard link added here */}
+                                {/*  Dashboard link added here */}
                                 <li>
-                                    <NavLink to="/dashboard" className="flex items-center gap-2 text-blue-800 font-medium hover:bg-blue-100 rounded px-2 py-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7m-9 2v10" />
-                                        </svg>
+                                    <NavLink
+                                        to="/dashboard"
+                                        className="flex items-center gap-2 text-blue-800 font-medium hover:bg-blue-100 rounded px-2 py-1"
+                                    >
+                                        <FiHome className="h-5 w-5 text-purple-500" />
                                         Dashboard
                                     </NavLink>
                                 </li>
