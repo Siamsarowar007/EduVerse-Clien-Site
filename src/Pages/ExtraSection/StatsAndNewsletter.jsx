@@ -65,7 +65,6 @@ const StatsAndNewsletter = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 px-6">
           <StatBox icon={<FaUserGraduate className="text-5xl mb-4 text-yellow-400" />} count={1558} title="Students" startCount={startCount} />
           <StatBox icon={<FaFolderOpen className="text-5xl mb-4 text-yellow-400" />} count={40} title="Learning Programmes" startCount={startCount} />
-          {/* <StatBox icon={<FaBriefcase className="text-5xl mb-4 text-yellow-400" />} count={12} title="Language Trainings" startCount={startCount} /> */}
           <StatBox icon={<FaBuilding className="text-5xl mb-4 text-yellow-400" />} count={13} title="Branches" startCount={startCount} />
           <StatBox icon={<FaChalkboardTeacher className="text-5xl mb-4 text-yellow-400" />} count={50} title="Instructors" startCount={startCount} />
         </div>

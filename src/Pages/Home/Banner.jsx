@@ -35,7 +35,7 @@ const Banner = () => {
   };
 
   return (
-    <section className="relative mt-8 rounded-lg shadow-lg overflow-hidden">
+    <section className="relative shadow-lg overflow-hidden">
       <Slider {...settings}>
         {bannerData.map((slide, index) => (
           <div key={index} className="relative h-[60vh] md:h-[65vh] lg:h-[70vh] w-full">

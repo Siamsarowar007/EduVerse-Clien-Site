@@ -92,9 +92,7 @@ const FAQ = () => {
                     <p className="text-white/80 mb-4 max-w-md text-base leading-relaxed">
                         Find quick answers to your questions about enrolling in our courses, payment options, and more.
                     </p>
-                    {/* <button className="bg-gradient-to-r from-blue-600 to-purple-500 hover:from-blue-700 hover:to-purple-600 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 w-fit font-semibold">
-                        Service
-                    </button> */}
+                  
                     <Link to='/service' className="bg-gradient-to-r from-blue-600 to-purple-500 hover:from-blue-700 hover:to-purple-600 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 w-fit font-semibold">
                         Service
                     </Link>

@@ -17,7 +17,6 @@ import About from '../Pages/About/About';
 import AllCourses from '../Pages/AllCourses/AllCourses';
 import Loader from '../Shared/Loader';
 import DashboardHome from '../Dashboard/DashboardHome';
-import { path } from 'framer-motion/client';
 import DashboardLayout from '../Dashboard/DashboardLayout';
 
 
